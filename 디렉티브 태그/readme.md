@@ -42,3 +42,8 @@ session
 include 디렉티브 태그
 <%@ include file = “파일명” %>
 
+디버깅 팁
+
+Ctrl + Shift + /: 자동 주석 처리
+에러 페이지 설정: <%@ page errorPage="error.jsp" %>
+에러 페이지 생성: <%@ page isErrorPage="true" %>
