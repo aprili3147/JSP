@@ -1,42 +1,39 @@
+JSP 태그 종류
+1. 스크립트 태그
+jsp<%! // 선언문 (Declaration)
+    int count = 3;
+    String makeItLower(String data) {
+        return data.toLowerCase();
+    }
+%>
 
-<% … %> 사용
+<% // 스크립틀릿 (Scriptlet)
+    for(int i = 1; i <= count; i++) {
+        // 자바 로직 코드
+    }
+%>
 
-JSP 페이지가 서블릿 프로그램에서 서블릿 클래스로 변환할 때
+<%= makeItLower("Hello World") %> <!-- 표현문 (Expression) -->
 
-<%! … %> - 선언문, 변수나 메소드 정의. 전역으로 사용
+<%-- JSP 주석 --%>
+스크립트 태그 정리
 
-<% .. %> - 스크립틀릿, 자바 로직 코드를 작성하는 데 사용
+<%! ... %>: 선언문 - 변수나 메소드 정의 (전역 사용)
+<% ... %>: 스크립틀릿 - 자바 로직 코드 작성
+<%= ... %>: 표현문 - 결과를 문자열로 출력
+<%-- ... --%>: 주석
 
-<%= … %> - 표현문, 변수, 계산식, 메서드 호출 결과를 문자열 형태로 출력하는데 사용
+2. 디렉티브 태그
+jsp<%@ page language="java" contentType="text/html; charset=UTF-8" 
+         pageEncoding="UTF-8" session="true" errorPage="error.jsp" %>
 
-<%@ page import = … %> - import
+<%@ include file="header.jsp" %>
 
-<%— —> - 주석 
+<%@ page import="java.io.*" %>
 
-＜%! int count = 3;
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+디렉티브 태그 종류
 
-String makeItLower(String data) {
-
-return data.toLowerCase();
-
-} %>
-
-<% 
-
-for(int i=1; i≤count; i++){
-
-…
-
-} %>
-
-<%= makeItLower(”Hello World”) %>
-
-컴파일 되서 변역이 되기 때문에 밑에서 선언해도 사용 가능
-
-![image.png](attachment:fd4eb675-dc24-4327-937e-d076e4291af5:image.png)
-
-스크립틀릿 태그
-
-서블릿 프로그램으로 변환될 때 _jspService() 메서드 내부에 배치된다.
-
-Ctrl + Shift + / - 자동 주석 처리
+<%@ page ... %>: JSP 페이지 정보 설정
+<%@ include ... %>: 다른 문서 포함 (번역 시점)
+<%@ taglib ... %>: 태그 라이브러리 설정
