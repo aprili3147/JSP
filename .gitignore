@@ -1,0 +1,30 @@
+# Eclipse 관련 파일
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# 이클립스 프로젝트 파일
+.project
+.classpath
+
+# Java 컴파일 파일
+*.class
+
+# 로그 파일
+*.log
+
+# 운영체제 관련
+.DS_Store
+Thumbs.db
+
+# 톰캣 관련
+/build/
+/target/
