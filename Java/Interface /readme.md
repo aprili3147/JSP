@@ -20,7 +20,6 @@ class SmartPhone implements Camera, Phone, Music {
 }
 이렇게 하면 SmartPhone 클래스는 Camera, Phone, Music에서 정의한 모든 메서드를 구현해야 합니다.
 
-✅ 예제 코드
 ## ✅ 예제 코드
 ```java
 // 1. 인터페이스 정의
