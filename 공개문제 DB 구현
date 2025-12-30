@@ -81,3 +81,7 @@ if(vendor == null){
 }
   date = new Date();
 }
+
+오라클 연결
+Service name: xe
+Host: localHost
