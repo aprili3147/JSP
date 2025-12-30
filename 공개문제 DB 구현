@@ -1,0 +1,83 @@
+1. DM발송 목록 테이블을 생성
+  CREATE TABLE DM_TBL (
+  dmno number(8) Primary Key,
+  custid varchar2(10),
+  maildate date,
+  contents varchar2(13),
+  dept char(2),
+  grade char(2),
+  campain char(2)
+  );
+
+2. 고객정보 테이블을 생성
+
+  CREATE TABLE bookinfo_tbl(
+  custid varchar2(10) Primary Key,
+  author varchar2(20),
+  goods char(10),
+  phone varchar2(20),
+  email varchar2(20),
+  area varchar2(20)
+  );
+
+ ALTER TABLE DM_TBL MODIFY contents varchar2(20); 
+
+3. 샘플 데이터를 참조하여 DM 발송내역정보와 고객정보테이블에 데이터를 생성하시오.
+INSERT INTO DM_TBL VALUES (1, 'aaa', '20171201', '안녕하세요?', '10', '1', 'C1');
+INSERT INTO DM_TBL VALUES (2, 'bbb', '20171201', '안녕하세요?', '10', '2', 'C1');
+INSERT INTO DM_TBL VALUES (3, 'ccc', '20171202', '안녕하세요?', '10', '3', 'C1');
+INSERT INTO DM_TBL VALUES (4, 'ddd', '20171204', '안녕하세요?', '20', 'V', 'C2');
+INSERT INTO DM_TBL VALUES (5, 'eee', '20171224', '안녕하세요?', '20', 'VV', 'C2');
+INSERT INTO DM_TBL VALUES (6, 'fff', '20171224', '안녕하세요?', '30', '1', 'C3');
+
+INSERT INTO bookinfo_tbl VALUES ('aaa', '김고객', '의류', '010-1111-1111', 'aaa@korea.com', '서울');
+INSERT INTO bookinfo_tbl VALUES ('bbb', '이고객', '의류', '010-1111-1112', 'bbb@korea.com', '서울');
+INSERT INTO bookinfo_tbl VALUES ('ccc', '박고객', '식료품', '010-1111-1113', 'ccc@korea.com', '경기');
+INSERT INTO bookinfo_tbl VALUES ('ddd', '홍고객', '공산품', '010-1111-1114', 'ddd@korea.com', '대전');
+INSERT INTO bookinfo_tbl VALUES ('eee', '조고객', '컴퓨터', '010-1111-1115', 'eee@korea.com', '대전');
+INSERT INTO bookinfo_tbl VALUES ('fff', '백고객', '관광', '010-1111-1116', 'fff@korea.com', '울산');
+
+commit;
+
+
+4. 고객 발송 내역 조회 SQL 문을 작성하시오.
+  캠페인구분이 캠페까지만 잘려나와서 
+  col "캠페인구분" format a20;
+
+  SELECT a.dmno AS "발송번호", a.custid AS "고객ID", b.author AS "고객명", TO_CHAR(a.maildate, 'yyyy-mm-dd') AS "발송일", a.contents AS "내용", a.campain AS "캠페인구분"
+  FROM DM_TBL a 
+  INNER JOIN bookinfo_tbl b 
+  ON a.custid = b.custid;
+
+5. INSERT INTO DM_TBL VALUES(?, ?, ?, ?, ?, ?, ?);
+
+6. SELECT b.area AS "지역", COUNT(*) AS "DM발송건수" 
+  FROM DM_TBL a 
+  INNER JOIN bookinfo_tbl b 
+  ON a.custid = b.custid
+  GROUP BY b.area;
+
+private String user;
+
+getter/setter
+
+public UserInfo(String user, ~~~){
+  super();
+  this.user = user;
+  ~
+  ~
+}
+
+private String code;
+
+getter/setter
+
+void find(){
+ HashMap<String, String> map = new HashMap<String, String>();
+ map.put("A100", "삼성전자");
+ vendor = map.get(code);
+if(vendor == null){
+  vendor="등록되지않은 제품입니다."
+}
+  date = new Date();
+}
